@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.20.0)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+project(simple-2d)
+
+file(GLOB_RECURSE s2dsrc simple-2d/*.cpp)
+add_library(simple-2d STATIC ${s2dsrc})
+target_include_directories(simple-2d PUBLIC simple-2d/include)
+target_include_directories(simple-2d PUBLIC glfw/include)
+target_include_directories(simple-2d PUBLIC ${CMAKE_BINARY_DIR}/glad/include)
+target_link_libraries(simple-2d PUBLIC glfw)
+target_link_libraries(simple-2d PUBLIC glad)
+
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_subdirectory(glfw)
+add_subdirectory(glad)
+
+file(GLOB thingies src/*.cpp)
+
+foreach(thingy ${thingies})
+    get_filename_component(name ${thingy} NAME_WE)
+    add_executable(${name} ${thingy})
+    target_link_libraries(${name} PRIVATE simple-2d)
+endforeach()
