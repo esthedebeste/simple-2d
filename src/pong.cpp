@@ -52,7 +52,7 @@ void update() {
   // Draw player paddle
   color(0, 1, 0);
   auto player_rect =
-      RectD::fromXYWH(player_x, player_y, PADDLE_WIDTH, PADDLE_HEIGHT);
+      RectD::fromLBWH(player_x, player_y, PADDLE_WIDTH, PADDLE_HEIGHT);
   rect(player_rect);
 
   if (ball_y > ai_y + PADDLE_HEIGHT / 2)
@@ -61,7 +61,7 @@ void update() {
     ai_y -= MOVE_SPEED * delta_multiplier;
   // Draw AI paddle
   color(1, 0, 0);
-  auto ai_rect = RectD::fromXYWH(ai_x, ai_y, PADDLE_WIDTH, PADDLE_HEIGHT);
+  auto ai_rect = RectD::fromLBWH(ai_x, ai_y, PADDLE_WIDTH, PADDLE_HEIGHT);
   rect(ai_rect);
 
   // Draw ball
@@ -93,7 +93,7 @@ void update() {
 
   color(1, 1, 1);
   circle(ball_circle);
-  if (!ball_circle.intersects(RectD::fromXYWH(0, 0, width, height))) {
+  if (!ball_circle.intersects(RectD::fromLBWH(0, 0, width, height))) {
     reset();
   }
 }
