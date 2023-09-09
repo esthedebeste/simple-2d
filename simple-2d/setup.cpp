@@ -26,6 +26,7 @@ int main() {
     std::cerr << "Failed to initialize GLFW!";
     return 1;
   }
+  init(callbacks);
   window = glfwCreateWindow(width, height, title, NULL, NULL);
   if (!window) {
     std::cerr << "Failed to create window!";
@@ -41,7 +42,6 @@ int main() {
   glBlendEquationSeparate(GL_FUNC_ADD, GL_FUNC_ADD);
   glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
   glfwSwapInterval(1);
-  init(callbacks);
   glfwSetKeyCallback(window, [](GLFWwindow *window, int intkey, int scancode,
                                 int action, int mods) {
     Key key = static_cast<Key>(intkey);
