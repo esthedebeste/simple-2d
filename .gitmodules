@@ -1,6 +1,9 @@
 [submodule "glfw"]
-	path = glfw
+	path = dependencies/glfw
 	url = https://github.com/glfw/glfw
 [submodule "glad"]
-	path = glad
+	path = dependencies/glad
 	url = https://github.com/Dav1dde/glad
+[submodule "dependencies/lodepng"]
+	path = dependencies/lodepng
+	url = https://github.com/lvandeve/lodepng

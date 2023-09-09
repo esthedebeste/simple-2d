@@ -1,0 +1,5 @@
+add_library(lodepng STATIC ${CMAKE_CURRENT_LIST_DIR}/lodepng/lodepng.cpp)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/lodepng)
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/lodepng/lodepng.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include/lodepng)
+target_include_directories(lodepng PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/include)
