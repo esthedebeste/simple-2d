@@ -243,7 +243,7 @@ public:
 
   /// @brief Creates a "zero" Circle
   /// @return a new Circle with all values set to 0
-  inline Circle() : mleft(0), mtop(0), mright(0), mbottom(0) {}
+  inline Circle() : mx(0), my(0), mradius(0) {}
 
   bool intersects(Circle<T> other) {
     T dx = mx - other.mx;
