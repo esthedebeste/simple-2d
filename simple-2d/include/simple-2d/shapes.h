@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <algorithm>
 
 template <typename T> class Vec2 {
   T mx, my;
